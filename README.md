@@ -7,7 +7,6 @@
 <a title="Require Go Version" target="_blank" href="https://github.com/panjf2000/gnet"><img src="https://img.shields.io/badge/go-%3E%3D1.9-30dff3?style=flat-square&logo=go"></a>
 <a title="Release" target="_blank" href="https://github.com/panjf2000/gnet/releases"><img src="https://img.shields.io/github/v/release/panjf2000/gnet.svg?color=161823&style=flat-square&logo=smartthings"></a>
 <br/>
-<a title="" target="_blank" href="https://golangci.com/r/github.com/panjf2000/gnet"><img src="https://golangci.com/badges/github.com/panjf2000/gnet.svg"></a>
 <a title="Go Report Card" target="_blank" href="https://goreportcard.com/report/github.com/panjf2000/gnet"><img src="https://goreportcard.com/badge/github.com/panjf2000/gnet?style=flat-square"></a>
 <a title="Doc for gnet" target="_blank" href="https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc"><img src="https://img.shields.io/badge/go.dev-doc-007d9c?style=flat-square&logo=read-the-docs"></a>
 <a title="gnet on Sourcegraph" target="_blank" href="https://sourcegraph.com/github.com/panjf2000/gnet?badge"><img src="https://sourcegraph.com/github.com/panjf2000/gnet/-/badge.svg?style=flat-square"></a>
@@ -33,9 +32,9 @@ English | [🇨🇳中文](README_ZH.md)
 - [x] Built-in memory pool with bytes powered by the library [bytebufferpool](https://github.com/valyala/bytebufferpool)
 - [x] Concise APIs
 - [x] Efficient memory usage: Ring-Buffer
-- [x] Supporting multiple protocols/IPC mechanism: TCP, UDP and Unix Domain Socket
-- [x] Supporting multiple load-balancing algorithms: Round-Robin, Source Addr Hash and Least-Connections
-- [x] Supporting two event-driven mechanisms: epoll on Linux and kqueue on FreeBSD
+- [x] Supporting multiple protocols/IPC mechanism: `TCP,` `UDP` and `Unix Domain Socket`
+- [x] Supporting multiple load-balancing algorithms: `Round-Robin`, `Source Addr Hash` and `Least-Connections`
+- [x] Supporting two event-driven mechanisms: `epoll` on Linux and `kqueue` on FreeBSD
 - [x] Supporting asynchronous write operation
 - [x] Flexible ticker event
 - [x] SO_REUSEPORT socket option
@@ -892,7 +891,9 @@ The `gnet.WithMulticore(true)` indicates whether the server will be effectively 
 
 ## Load Balancing
 
-The current built-in load balancing algorithm in `gnet` is Round-Robin.
+`gnet` currently supports three load balancing algorithms: `Round-Robin`, `Source Addr Hash` and `Least-Connections`, you are able to decide which algorithm to use by passing the functional option `LB` (RoundRobin/LeastConnections/SourceAddrHash) to `gnet.Serve`.
+
+If the load balancing algorithm is not specified explicitly, `gnet` will use `Round-Robin` by default.
 
 ## SO_REUSEPORT
 
@@ -1010,6 +1011,7 @@ Please read our [Contributing Guidelines](CONTRIBUTING.md) before opening a PR a
 - [Going Infinite, handling 1M websockets connections in Go](https://speakerdeck.com/eranyanay/going-infinite-handling-1m-websockets-connections-in-go)
 - [Go netpoll I/O 多路复用构建原生网络模型之源码深度解析](https://taohuawu.club/go-netpoll-io-multiplexing-reactor)
 - [gnet: 一个轻量级且高性能的 Golang 网络库](https://taohuawu.club/go-event-loop-networking-library-gnet)
+- [最快的 Go 网络框架 gnet 来啦！](https://taohuawu.club/releasing-gnet-v1-with-techempower)
 
 ## JetBrains OS licenses
 
